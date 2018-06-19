@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Day and Night</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="viewer">
+            <div class="image night"><p>I found <a href="https://codepen.io/DXC/pen/aKwYRz">this Pen</a> from <a href="https://codepen.io/DXC">Daniel Constance</a> interesteing and wanting to understand how it works I built my own version.</p>
+        </div>
+        </div>
+        <div class="image day">
+            <p>I found <a href="https://codepen.io/DXC/pen/aKwYRz">this Pen</a> from <a href="https://codepen.io/DXC">Daniel Constance</a> interesteing and wanting to understand how it works I built my own version.</p>
+        </div>
+
+        <script>
+            viewer = document.querySelector('.viewer');
+            night = document.querySelector('.night');
+            day = document.querySelector('.day');
+
+            document.querySelector('.day').addEventListener("mousemove",
+                function(e){
+                    day.addEventListener("mousemove",function(e){
+                        offsetX = viewer.offsetWidth / 2;
+                        offsetY = viewer.offsetHeight / 2;
+                        viewer.style.top =`${e.clientY - offsetY}px`;
+                        viewer.style.left =`${e.clientX - offsetX}px`;
+                        night.style.top = `${offsetY - e.clientY}px`;
+                        night.style.left = `${offsetX - e.clientX}px`;
+                    })
+                }
+            );
+        </script>
+
+    </body>
+</html>
